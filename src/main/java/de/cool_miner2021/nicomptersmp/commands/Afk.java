@@ -1,23 +1,25 @@
 package de.cool_miner2021.nicomptersmp.commands;
 
-import net.kyori.adventure.text.TextComponent;
+import de.cool_miner2021.nicomptersmp.NicompterSMP;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class afk implements CommandExecutor {
+import java.util.Objects;
+
+public class Afk implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if(commandSender instanceof Player){
             Player p = ((Player) commandSender).getPlayer();
-            if(p.getName() != p.getPlayerListName()){
+            if(!Objects.requireNonNull(p).getName().equals(p.getPlayerListName())){
                 p.setPlayerListName(p.getName());
-                p.sendMessage("§aDu bist nun nicht mehr als AFK markiert");
+                p.sendMessage(NicompterSMP.prefix +"§aDu bist nun nicht mehr als AFK markiert");
             }else{
-                p.setPlayerListName("§c§oAFK §r"+p.getName());
-                p.sendMessage("§aDu bist nun als AFK markiert");
+                p.setPlayerListName("§c§o[AFK] §r"+p.getName());
+                p.sendMessage(NicompterSMP.prefix+"§aDu bist nun als AFK markiert");
             }
         }
 

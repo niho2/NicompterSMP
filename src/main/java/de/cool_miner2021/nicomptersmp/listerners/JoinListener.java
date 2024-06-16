@@ -1,14 +1,16 @@
 package de.cool_miner2021.nicomptersmp.listerners;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+
 import java.util.Random;
 
 public class JoinListener implements Listener {
-
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         String[] jokes = {
@@ -104,12 +106,13 @@ public class JoinListener implements Listener {
                 "„Ist der Fisch eigentlich immer so nervig?“ – Ja, das ist ein Stör.",
                 "„Was sagt ein stolzer Holzwurm-Papa?“ – Mein Sohn arbeitet in der Bank."};
         e.setJoinMessage("");
+        Random random = new Random();
+        int randomIndex = random.nextInt(jokes.length);
+        String randomJoke = jokes[randomIndex];
         for(Player p : Bukkit.getOnlinePlayers()){
-            Random random = new Random();
-            int randomIndex = random.nextInt(jokes.length);
-            String randomJoke = jokes[randomIndex];
             p.sendMessage("§e"+e.getPlayer().getName()+" joined the game");
             p.sendMessage("<"+e.getPlayer().getName()+"> "+randomJoke);
         }
+        Bukkit.getLogger().info("[NicompterSMP] "+e.getPlayer().getName()+" joined the game");
     }
 }
