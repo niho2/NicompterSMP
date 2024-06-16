@@ -8,3 +8,5 @@ commands:
     description: "Verändert deinen AFK Status"
   ping:
     description: "Zeigt deinen Ping"
+  creeper:
+    description: "Spielt bei anderen Spielern einen Creeper Prime Sound ab"
