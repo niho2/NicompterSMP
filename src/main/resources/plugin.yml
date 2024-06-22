@@ -10,3 +10,6 @@ commands:
     description: "Zeigt deinen Ping"
   creeper:
     description: "Spielt bei anderen Spielern einen Creeper Prime Sound ab"
+  location:
+    description: "Gibt die Koordinaten und Welt eines Spielers an"
+    permission: "nicomptersmp.location"

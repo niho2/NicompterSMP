@@ -2,6 +2,7 @@ package de.cool_miner2021.nicomptersmp;
 
 import de.cool_miner2021.nicomptersmp.commands.Afk;
 import de.cool_miner2021.nicomptersmp.commands.Creeper;
+import de.cool_miner2021.nicomptersmp.commands.Location;
 import de.cool_miner2021.nicomptersmp.commands.Ping;
 import de.cool_miner2021.nicomptersmp.listerners.JoinListener;
 import org.bukkit.Bukkit;
@@ -18,6 +19,7 @@ public final class NicompterSMP extends JavaPlugin {
         Objects.requireNonNull(getCommand("afk")).setExecutor(new Afk());
         Objects.requireNonNull(getCommand("ping")).setExecutor(new Ping());
         Objects.requireNonNull(getCommand("creeper")).setExecutor(new Creeper());
+        Objects.requireNonNull(getCommand("location")).setExecutor(new Location());
         Bukkit.getLogger().info("NicompterSMP Plugin enabled successfully");
         getServer().getPluginManager().registerEvents(new JoinListener(), this);
 
